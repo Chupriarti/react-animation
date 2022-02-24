@@ -1,14 +1,20 @@
 import React from 'react';
 import './App.css';
+import { Transition } from 'react-transition-group';
 
 function App() {
-  const [loaderVisible, setLoaderVisible] = React.useState(false);
+  const [loaderVisible, setLoaderVisible] = React.useState(true);
 
   return (
     <div className="App">
       <button onClick={() => setLoaderVisible(!loaderVisible)}>{loaderVisible ? "Hide" : "Show"}</button>
       <div className="wrap">
-        { loaderVisible && <div className="circle"/> }
+        <Transition
+          in={loaderVisible}
+          timeout={2000}
+        >
+          {state => <div className={`circle ${state}`}/>}
+        </Transition>
       </div>
     </div>
   );
