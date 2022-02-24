@@ -5,6 +5,11 @@ import { Transition } from 'react-transition-group';
 function App() {
   const [loaderVisible, setLoaderVisible] = React.useState(false);
 
+  React.useEffect(() => {
+    setTimeout(() => setLoaderVisible(true), 1000)
+    setTimeout(() => setLoaderVisible(false), 5000)
+  }, [])
+
   return (
     <div className="App">
       <button onClick={() => setLoaderVisible(!loaderVisible)}>{loaderVisible ? "Hide" : "Show"}</button>
