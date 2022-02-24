@@ -12,6 +12,8 @@ function App() {
         <Transition
           in={loaderVisible}
           timeout={500}
+          mountOnEnter
+          unmountOnExit
         >
           {state => <div className={`circle ${state}`}/>}
         </Transition>
