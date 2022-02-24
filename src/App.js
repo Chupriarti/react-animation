@@ -3,7 +3,7 @@ import './App.css';
 import { Transition } from 'react-transition-group';
 
 function App() {
-  const [loaderVisible, setLoaderVisible] = React.useState(true);
+  const [loaderVisible, setLoaderVisible] = React.useState(false);
 
   return (
     <div className="App">
@@ -11,7 +11,7 @@ function App() {
       <div className="wrap">
         <Transition
           in={loaderVisible}
-          timeout={2000}
+          timeout={500}
         >
           {state => <div className={`circle ${state}`}/>}
         </Transition>
