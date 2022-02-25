@@ -23,15 +23,15 @@
   border: 3px dashed black;
 }
 
-.circle-enter-active {
+.circle-show{
   animation: show-loader 0.5s forwards;
 }
 
-.circle-enter-done {
+.circle-rotate {
   animation: rotate-loader 0.5s infinite;
 }
 
-.circle-exit-active {
+.circle-hide {
   animation: show-loader 0.5s reverse;
 }
 

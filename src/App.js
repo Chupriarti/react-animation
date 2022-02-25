@@ -13,7 +13,11 @@ function App() {
         <CSSTransition
           in={loaderVisible}
           timeout={500}
-          classNames="circle"
+          classNames={{
+            enterActive: 'circle-show',
+            enterDone: 'circle-rotate',
+            exitActive: 'circle-hide',
+           }}
           mountOnEnter
           unmountOnExit
         >
