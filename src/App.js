@@ -14,6 +14,8 @@ function App() {
           in={loaderVisible}
           timeout={500}
           classNames="circle"
+          mountOnEnter
+          unmountOnExit
         >
           <div className='circle'></div>
         </CSSTransition>
