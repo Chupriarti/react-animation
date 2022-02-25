@@ -23,19 +23,19 @@
   border: 3px dashed black;
 }
 
-.circle.entering {
+.circle-show{
   animation: show-loader 0.5s forwards;
 }
 
-.circle.entered {
+.circle-rotate {
   animation: rotate-loader 0.5s infinite;
 }
 
-.circle.exiting {
+.circle-hide {
   animation: show-loader 0.5s reverse;
 }
 
-.circle.exited {
+.circle-exit-done {
 
 }
 
