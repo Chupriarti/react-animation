@@ -4,6 +4,9 @@ import { CSSTransition } from 'react-transition-group';
 
 
 function App() {
+  const [mode, setMode] = React.useState("out-in")
+  const [toggle, setToggle] = React.useState(false)
+
   return (
     <div className="App">
       <div>
