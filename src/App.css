@@ -7,57 +7,42 @@
 .App {
   width: 100vw;
   height: 100hv;
-}
-
-.wrap {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90vh;
 }
 
-.circle {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 3px dashed black;
+input {
+  margin: 20px;
 }
 
-.circle-show{
-  animation: show-loader 0.5s forwards;
+.fade-enter-active {
+  animation: fade-in 500ms forwards;
 }
 
-.circle-rotate {
-  animation: rotate-loader 0.5s infinite;
+.fade-exit-active {
+  animation: fade-out 500ms forwards;  
 }
 
-.circle-hide {
-  animation: show-loader 0.5s reverse;
-}
-
-.circle-exit-done {
-
-}
-
-@keyframes show-loader {
+@keyframes fade-in {
   0% {
     opacity: 0;
-    transform: translateY(-200px);
+    transform: translateX(-150px);
   }
-  50% {
+  100% {
     opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
-@keyframes rotate-loader {
+@keyframes fade-out {
   0% {
-    transform: rotate(0deg);
+    opacity: 1;
+    transform: translateX(0);
   }
   100% {
-    transform: rotate(360deg);
+    opacity: 0;
+    transform: translateX(150px);
   }
 }
