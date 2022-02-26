@@ -21,6 +21,7 @@ function App() {
       </div>
       <SwitchTransition mode={mode}>
         <CSSTransition 
+          key={toggle}
           timeout={500}
           classNames="fade"
         >
