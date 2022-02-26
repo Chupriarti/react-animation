@@ -17,7 +17,7 @@ function App() {
         <label htmlFor="out-in">out-in</label>
         <input onChange={(e) => changeHandler(e)} id="out-in" value="out-in" name="radio" type="radio" />
         <label htmlFor="in-out">in-out</label>
-        <input onChange={(e) => changeHandler(e)} id="in-out" value="out-in" name="radio" type="radio" />
+        <input onChange={(e) => changeHandler(e)} id="in-out" value="in-out" name="radio" type="radio" />
       </div>
       <SwitchTransition mode={mode}>
         <CSSTransition 
