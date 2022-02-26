@@ -6,7 +6,12 @@ import { CSSTransition } from 'react-transition-group';
 function App() {
   return (
     <div className="App">
-
+      <div>
+        <label htmlFor="out-in">out-in</label>
+        <input id="out-in" value="out-in" name="radio" type="radio" />
+        <label htmlFor="in-out">in-out</label>
+        <input id="in-out" value="out-in" name="radio" type="radio" />
+      </div>
     </div>
   );
 }
