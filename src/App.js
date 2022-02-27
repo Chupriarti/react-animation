@@ -24,7 +24,7 @@ function App() {
       </div>
       <ul>
         {todoList.map(({id, text}) => 
-          <li>{id} {text}</li>
+          <li key={id}>{id} {text}</li>
         )}
       </ul>
     </div>
