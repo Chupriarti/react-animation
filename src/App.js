@@ -1,35 +1,39 @@
 import React from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './App.css';
-import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 
 function App() {
-  const [mode, setMode] = React.useState("out-in")
-  const [toggle, setToggle] = React.useState(false)
+  const [text, setText] = React.useState('')
+  const [todoList, setTodoList] = React.useState(
+    [
+      {id: 1, text: "Start job"},
+      {id: 2, text: "Do job"},
+      {id: 3, text: "Finish job"},
+    ]
+  )
 
-  function changeHandler (e) {
-    setMode(e.target.value)
+  function addTodo() {
+    setTodoList([...todoList, {id: Date.now(), text}])
   }
 
   return (
     <div className="App">
       <div>
-        <label htmlFor="out-in">out-in</label>
-        <input onChange={(e) => changeHandler(e)} id="out-in" value="out-in" name="radio" type="radio" />
-        <label htmlFor="in-out">in-out</label>
-        <input onChange={(e) => changeHandler(e)} id="in-out" value="in-out" name="radio" type="radio" />
+        <input onChange={e => setText(e.target.value)} value={text} type="text"/>
+        <button onClick={() => addTodo()}>Add item</button>
       </div>
-      <SwitchTransition mode={mode}>
-        <CSSTransition 
-          key={toggle}
-          timeout={500}
-          classNames="fade"
-        >
-          <button onClick={() => setToggle(!toggle)}>
-            {toggle ? "Hello world" : "Goodbye world"}
-          </button>
-        </CSSTransition>
-      </SwitchTransition>
+      <TransitionGroup component='ul'>
+            {todoList.map(({id, text}) => 
+              <CSSTransition
+                key={id}
+                timeout={500}
+                classNames="todo"
+              >
+                <li className='todo' onClick={() => setTodoList([...todoList.filter(todo => todo.id !== id)])}>{id} {text}</li>
+              </CSSTransition>
+            )} 
+      </TransitionGroup>
     </div>
   );
 }
