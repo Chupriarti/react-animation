@@ -3,17 +3,25 @@ import './App.css';
 
 
 function App() {
+  const [text, setText] = React.useState('')
+  const [todoList, setTodoList] = React.useState(
+    [
+      {id: 1, text: "Start job"},
+      {id: 2, text: "Do job"},
+      {id: 3, text: "Finish job"},
+    ]
+  )
 
   return (
     <div className="App">
       <div>
-        <input type="text"/>
+        <input onChange={e => setText(e.target.value)} value={text} type="text"/>
         <button>Add item</button>
       </div>
       <ul>
-        <li>Start job</li>
-        <li>Do job</li>
-        <li>Finish job</li>
+        {todoList.map(({id, text}) => 
+          <li>{id} {text}</li>
+        )}
       </ul>
     </div>
   );
