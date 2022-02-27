@@ -1,4 +1,5 @@
 import React from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './App.css';
 
 
@@ -22,11 +23,17 @@ function App() {
         <input onChange={e => setText(e.target.value)} value={text} type="text"/>
         <button onClick={() => addTodo()}>Add item</button>
       </div>
-      <ul>
-        {todoList.map(({id, text}) => 
-          <li className='todo' onClick={() => setTodoList([...todoList.filter(todo => todo.id !== id)])} key={id}>{id} {text}</li>
-        )}
-      </ul>
+      <TransitionGroup component='ul'>
+            {todoList.map(({id, text}) => 
+              <CSSTransition
+                key={id}
+                timeout={500}
+                classNames="todo"
+              >
+                <li className='todo' onClick={() => setTodoList([...todoList.filter(todo => todo.id !== id)])}>{id} {text}</li>
+              </CSSTransition>
+            )} 
+      </TransitionGroup>
     </div>
   );
 }
