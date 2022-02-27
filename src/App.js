@@ -12,11 +12,15 @@ function App() {
     ]
   )
 
+  function addTodo() {
+    setTodoList([...todoList, {id: Date.now(), text}])
+  }
+
   return (
     <div className="App">
       <div>
         <input onChange={e => setText(e.target.value)} value={text} type="text"/>
-        <button>Add item</button>
+        <button onClick={() => addTodo()}>Add item</button>
       </div>
       <ul>
         {todoList.map(({id, text}) => 
