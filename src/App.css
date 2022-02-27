@@ -25,6 +25,12 @@ input {
   animation: fade-out 500ms forwards;  
 }
 
+.todo {
+  border: 1px solid black;
+  padding: 5px 10px;
+  margin: 15px;
+}
+
 @keyframes fade-in {
   0% {
     opacity: 0;

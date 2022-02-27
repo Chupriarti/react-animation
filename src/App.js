@@ -24,7 +24,7 @@ function App() {
       </div>
       <ul>
         {todoList.map(({id, text}) => 
-          <li onClick={() => setTodoList([...todoList.filter(todo => todo.id !== id)])} key={id}>{id} {text}</li>
+          <li className='todo' onClick={() => setTodoList([...todoList.filter(todo => todo.id !== id)])} key={id}>{id} {text}</li>
         )}
       </ul>
     </div>
