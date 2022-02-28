@@ -4,45 +4,30 @@
   box-sizing: border-box;
 }
 
-.App {
-  width: 100vw;
-  height: 100hv;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+body {
+  padding: 5rem;
 }
 
-input {
-  margin: 20px;
+a {
+  margin-right: 30px;
 }
 
-.fade-enter-active {
-  animation: fade-in 500ms forwards;
+.page {
+  position: absolute;
 }
 
-.fade-exit-active {
-  animation: fade-out 500ms forwards;  
+.page-enter-active {
+  animation: fade-in 1s forwards;
 }
 
-.todo {
-  border: 1px solid black;
-  padding: 5px 10px;
-  margin: 15px;
-}
-
-.todo-exit-active {
-  animation: fade-out 500ms forwards;  
-}
-
-.todo-enter-active {
-  animation: fade-in 500ms forwards;
+.page-exit-active {
+  animation: fade-out 1s forwards;
 }
 
 @keyframes fade-in {
   0% {
     opacity: 0;
-    transform: translateX(-150px);
+    transform: translateX(-400px);
   }
   100% {
     opacity: 1;
@@ -57,6 +42,6 @@ input {
   }
   100% {
     opacity: 0;
-    transform: translateX(150px);
+    transform: translateX(100%);
   }
 }

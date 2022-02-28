@@ -1,40 +1,41 @@
 import React from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { BrowserRouter, NavLink, Route } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 import './App.css';
+import About from './pages/About';
+import Main from './pages/Main';
 
 
 function App() {
-  const [text, setText] = React.useState('')
-  const [todoList, setTodoList] = React.useState(
-    [
-      {id: 1, text: "Start job"},
-      {id: 2, text: "Do job"},
-      {id: 3, text: "Finish job"},
-    ]
-  )
 
-  function addTodo() {
-    setTodoList([...todoList, {id: Date.now(), text}])
-  }
+  const routes = [
+    {path: '/', Component: Main},
+    {path: '/about', Component: About}
+  ]
 
   return (
-    <div className="App">
-      <div>
-        <input onChange={e => setText(e.target.value)} value={text} type="text"/>
-        <button onClick={() => addTodo()}>Add item</button>
-      </div>
-      <TransitionGroup component='ul'>
-            {todoList.map(({id, text}) => 
+    <BrowserRouter>
+      <div className="App">
+        <div className="div">
+          <NavLink to ="/">Main Page</NavLink>
+          <NavLink to ="/about">About Page</NavLink>
+        </div>
+        {routes.map(({path, Component}) => 
+          <Route key={path} exact path={path} >
+            {({match}) => 
               <CSSTransition
-                key={id}
-                timeout={500}
-                classNames="todo"
+                timeout={1000}
+                classNames="page"
+                unmountOnExit
+                in={match != null}
               >
-                <li className='todo' onClick={() => setTodoList([...todoList.filter(todo => todo.id !== id)])}>{id} {text}</li>
+                <Component />
               </CSSTransition>
-            )} 
-      </TransitionGroup>
-    </div>
+            }
+          </Route>
+        )}
+      </div>
+    </BrowserRouter>
   );
 }
 
