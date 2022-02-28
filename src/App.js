@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, NavLink, Route } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 import './App.css';
 import About from './pages/About';
 import Main from './pages/Main';
@@ -22,7 +23,14 @@ function App() {
         {routes.map(({path, Component}) => 
           <Route key={path} exact path={path} >
             {({match}) => 
-              <Component />
+              <CSSTransition
+                timeout={1000}
+                classNames="pages"
+                unmountOnExit
+                in={match != null}
+              >
+                <Component />
+              </CSSTransition>
             }
           </Route>
         )}
